@@ -1,0 +1,45 @@
+<head>
+
+<meta name="google-translate-customization" content="c2613bcfe8e22e49-da4e4e3008b8c689-g8a7bb4f106a09989-e"></meta>
+        </head>
+
+        <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+<h1>Inventory</h1>
+<br />
+<style type="text/css">
+.title {
+font-size: 20pt;
+font-style: bold;
+font-family: verdena;
+margin-bottom: 20px;
+}
+
+</style>
+
+<table>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to image_tag(product.image_url), product %></td>
+    <td>
+
+    <div class="title"><%= link_to product.title, product %></div>
+    <div class="description"><%= product.description %></div>
+    <div class="links"><%= link_to 'Show', product %> | <%= link_to 'Edit', edit_product_path(product) %> |<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <br />
+    <div class="cost"><%= number_to_currency product.cost, :unit => "Product Cost: $  " %></div>
+
+</td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+<br />
+<%= link_to 'New Product', new_product_path %>

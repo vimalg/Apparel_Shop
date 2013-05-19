@@ -1,0 +1,24 @@
+<div id="container"
+
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
+
+
+
+<h1>Apparel Shop</h1>
+<br />
+<style type="text/css">
+.title {
+font-size: 20pt;
+font-style: bold;
+font-family: verdena;
+margin-bottom: 20px;
+}
+</style>

@@ -1,0 +1,38 @@
+<head>
+
+<meta name="google-translate-customization" content="c2613bcfe8e22e49-da4e4e3008b8c689-g8a7bb4f106a09989-e"></meta>
+        </head>
+
+        <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<% if notice %>
+<p id="notice" ><%= notice %></p>
+<% end %>
+<h1>Shopping Catalog</h1>
+<br />
+<%= link_to "My Cart", :controller => :cart, :action => :index %>
+<br />
+
+<div id="user_nav">
+<%= link_to "Sign out", destroy_user_session_path %>
+</div>
+
+
+
+<% @products.each do |product| %>
+<div class="entry" >
+<h3><%= product.title %></h3>
+<%=sanitize product.description %>
+<br />
+<br />
+<%= image_tag(product.image_url) %>
+<div class="cost_line" >
+<b> <span class="cost" > Product Cost: $  <%= product.cost %></span> </b>
+<%= button_to "Add to Cart", :controller => :cart, :action => :add, :id => product %>
+</div>
+</div>
+<% end %>
